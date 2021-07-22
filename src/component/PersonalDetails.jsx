@@ -1,25 +1,49 @@
-const PersonalDetails=({next,inputHandler,textValue})=>{
-  
+import React from "react";
+import './style.css'
 
-  const nextStep=()=>{
-    next()
+const PersonalDetails = ({next, inputHandler, textValue}) => {
+    const nextStep = () => {
+        next()
 
-  } 
-  const handleInput=(e)=>{
-    let {name,value}=e.target
-    inputHandler(name,value)
+    }
+    const handleInput = (e) => {
+        let {name, value} = e.target
+        inputHandler(name, value)
 
-  }
+    }
+    return (
 
-  return(
+        <>
+            <div>
 
-    <>
-    <h1>PersonalDetails</h1>
-   FirstName <input type="text" name="firstName" value={textValue.firstName} onChange={(e)=>handleInput(e)}/>
-   lastName <input type="text" name="lastName" value={textValue.lastName}  onChange={(e)=>handleInput(e)}/>
-   <button onClick={nextStep}>Next</button>
+                <div className="page-body-wrapper">
+                    <div className="content-wrapper ">
+                        <section className="reset-password">
+                            <div className="container">
+                                <div className="section-title">
+                                    Personal Details
+                                </div>
+                                <div className="reset-password-box">
+                                    <div className="form-feildset">
+                                        <input type="text" name="firstName" value={textValue.firstName}
+                                              placeholder="Firstname" onChange={(e) => handleInput(e)}/>
+                                    </div>
+                                    <div className="form-feildset">
+                                        <input type="text" name="lastName" value={textValue.lastName}
+                                               placeholder="LastName" onChange={(e) => handleInput(e)}/>
+                                    </div>
+                                    <div className="form-feildset">
+                                        <button onClick={nextStep}>Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-    </>
-  )
+                    </div>
+                </div>
+            </div>
+
+        </>
+    )
 }
 export default PersonalDetails

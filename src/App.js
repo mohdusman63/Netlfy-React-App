@@ -3,6 +3,7 @@ import EducationDetails from './component/EducationDetails'
 import PersonalDetails from './component/PersonalDetails'
 import Details from './component/Details'
 import {useState} from "react";
+import { Stepper, Step } from 'react-form-stepper';
 
 export default function App() {
     let [state, setState] = useState(0)
@@ -34,7 +35,12 @@ export default function App() {
     }
     return (
         <>
-
+            <Stepper activeStep={state}>
+                <Step  label="Personal Details" />
+                <Step  label="EducationDetails" />
+                <Step  label="WorkExperience" />
+                <Step  label="All Details" />
+            </Stepper>
             {
                 state === 0 ? <PersonalDetails next={next} prev={prev} inputHandler={inputHandler} textValue={value}/>
                     : state === 1 ?
